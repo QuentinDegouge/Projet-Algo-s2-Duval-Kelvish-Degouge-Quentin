@@ -12,5 +12,19 @@ L'utilisateur pourra nottement :
 
 2 - Afficher le dataframe
       -dans son entièreté ou par groupe de colones ou de lignes
+      -afficher le nom des colonnes
 
-3
+3 - effectuer des opérations usuelles
+      -ajouter/supprimer des valeures/colonnes
+      -renommer une colonne
+      -vérifier l’existence d’une valeur
+      -accéder/remplacer une valeur grace à ses coordonées dans le CDataframe
+
+4 - afficher les statistiques du CDataframe
+      -afficher le nombre de lignes / colonnes
+      -afficher le nombre de valeures suppérieures/inférieures/égales à une valeur saisie
+
+
+
+Le projet n'en est encore qu'à ses débuts, la versions présenté ici n'est encore qu'un simple prototype. 
+Des modifications et améliorations seront ajouté dans le futur.
