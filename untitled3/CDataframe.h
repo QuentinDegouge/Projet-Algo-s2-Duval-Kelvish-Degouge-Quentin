@@ -9,13 +9,13 @@
 * @brief: Création d’un CDataframe vide
 * @param:  nom du CDataframe
 */
-void? createCDataframe(nom) ;
+void createCDataframe(nom) ;
 
 /**
 * @brief: Remplissage du CDataframe à partir de saisies utilisateurs
 * @param:  valeures à intégrer dans le Cdataframe
 */
-void? userfill(val) ;
+void userfill(val) ;
 
 /**
 * @brief: Remplissage du CDataframe en dure
@@ -28,60 +28,60 @@ void? userfill(val) ;
 * @brief: Afficher tout le CDataframe
 * @param:  Cdataframe à afficher
 */
-void? fullprint(DATAFRAME) ;
+void fullprint(DATAFRAME) ;
 
 /**
 * @brief: Afficher une partie des lignes du CDataframe selon une limite fournie par l’utilisateur
 * @param1:  début de l'interval à afficher
 * @param2:  Fin de l'interval à afficher
 */
-void? printligne(y1,y2) ;
+void printligne(y1,y2) ;
 
 /**
 * @brief: Afficher une partie des collones du CDataframe selon une limite fournie par l’utilisateur
 * @param1:  début de l'interval à afficher
 * @param2:  Fin de l'interval à afficher
 */
-void? printcollone(x1,x2) ;
+void printcollone(x1,x2) ;
 
 /**
 * @brief: Ajouter une ligne de valeurs au CDataframe
 * @param:  ligne à ajouter
 */
-void? addligne(ligne) ;
+void addligne(ligne) ;
 
 /**
 * @brief: supprimer une ligne de valeurs au CDataframe
 * @param:  ligne à ajouter
 */
-void? delligne(ligne) ;
+void delligne(ligne) ;
 
 
 /**
 * @brief: Ajouter une collone de valeurs au CDataframe
 * @param:  collone à ajouter
 */
-void? addcollone(collone) ;
+void addcollone(collone) ;
 
 
 /**
 * @brief: supprimer une collone de valeurs au CDataframe
 * @param:  collone à ajouter
 */
-void? delcollone(collone) ;
+void delcollone(collone) ;
 
 /**
 * @brief: renomme une collone de valeurs au CDataframe
 * @param1:  collone à renommer
 * @param2: nouveau nom de la collone
 */
-void? renamecollone(collone,nom) ;
+void renamecollone(collone,nom) ;
 
 /**
 * @brief: Vérifier l’existence d’une valeur  dans le CDataframe
 * @param:  valeur à vérifier
 */
-void? existence(val) ;
+void existence(val) ;
 
 /**
 * @brief: Accéder la valeur se trouvant dans une cellule du CDataframe en utilisant son
@@ -90,7 +90,7 @@ numéro de ligne et de colonne
 * @param1:  numéro de ligne
 * @param2: numéro de la collone
 */
-void? reach(ligne,collone) ;
+void reach(ligne,collone) ;
 
 /**
 * @brief: remplacer la valeur se trouvant dans une cellule du CDataframe en utilisant son
@@ -100,13 +100,13 @@ numéro de ligne et de colonne
 * @param2: numéro de la collone
 * @param3: nouvelle valeur
 */
-void? replace(ligne,collone,val) ;
+void replace(ligne,collone,val) ;
 
 /**
 * @brief: Afficher les noms des colonnes
 * @param:  none
 */
-void? printname() ;
+void printname() ;
 
 /**
 * @brief: Afficher  le nombre de colonnes
