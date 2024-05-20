@@ -1,44 +1,59 @@
+#include "column.h"
 #include <stdio.h>
-#include "fonctions.h"
+#include <stdlib.h>
 
-int main()
-{
-    /* Création de 2 colonnes */
-    COL* colonne1 = addcollone("Colonne1");
-    COL* colonne2 = addcollone("Colonne2");
-
-    /* Rajoute des valeurs dans les colonnes */
-    for (int i = 0; i < 7; i++)
-    {
-        replace(colonne1, i);
-        replace(colonne2, i+2);
+int main() {
+    int i,o,k;
+    char name;
+    COLUMN *Cdataframe = NULL;
+    COLUMN *col = create_column("Colonne1");
+    COLUMN *col2 = create_column("Colonne2");
+    insert_value(col, 52);
+    insert_value(col, 52);
+    insert_value(col, 15);
+    insert_value(col2, 12);
+    print_col(col);
+    printf("Le chiffre %d se repete %d fois.\n",52, nb_occurences(col, 52));
+    printf("A la position %d se trouve la valeur %d.\n",2,value_pos(col, 2));
+    printf("Il y a %d valeur(s) superieure(s) a %d.\n",val_sup(col,16),16);
+    printf("Il y a %d valeur(s) inferieure(s) a %d.\n",val_inf(col,16),16);
+    printf("Il y a %d valeur(s) egale(s) a %d.\n",val_egal(col,15),15);
+    printf("De quelle taille est le Cdataframe ?\n");
+    scanf("%d",&i);
+    Cdataframe = (COLUMN *)malloc(i *sizeof(COLUMN));
+    for (int n = 0; n < i; n++){
+        printf("Nom de la colonne %d\n",n);
+        scanf("%s",&name);
+        Cdataframe[n] = *create_column(&name);
+        printf("Combien de valeurs ?\n");
+        scanf("%d",&o);
+        for (int m = 0; m < o; m++){
+            printf("Quelle valeur dans la case %d ? \n",m);
+            scanf("%d",&k);
+            insert_value(&Cdataframe[n],k);
+        }
     }
-    replace(colonne1, 3);
-    replace(colonne1, 5);
-    replace(colonne1, 3);
-
-    /* Affiche les colonnes */
-    printf("Colonne 1:\n");
-    printcollone(colonne1);
-    printf("\nColonne 2:\n");
-    printcollone(colonne2);
-
-    /* Test de la fonction nb_docc pour compter le nombre d'occurences de val dans la colonne 1 */
-    int valeur = 3;
-    printf("\nNombre d'occurences de %d dans la colonne 1: %d\n", valeur, nb_occurence(colonne1, valeur));
-
-    /* Test de la fonction position_of_value pour trouver val à une position dans la colonne 2 */
-    int position = 2;
-    printf("\nValeur à la position %d dans la colonne 2: %d\n", position, position(colonne2, position));
-
-    /* Test les fonctions de comptage */
-    int valeur_test = 4;
-    printf("\nNombre de valeurs supérieures a %d dans la colonne 1: %d\n", valeur_test, supérieur(colonne1, valeur_test));
-    printf("Nombre de valeurs inférieures a %d dans la colonne 2: %d\n", valeur_test, inférieur(colonne2, valeur_test));
-    printf("Nombre de valeurs egales a %d dans la colonne 1: %d\n", valeur_test, égal(colonne1, valeur_test));
-
-    /* Suppression des colonnes pour libérer la mémoire */
-    delcollone(&colonne1);
-    delcollone(&colonne2);
-
+    Cdataframe = (COLUMN *)realloc(Cdataframe,sizeof(COLUMN)*2);
+    Cdataframe[i] = *col;
+    Cdataframe[i+1] = *col2;
+    i ++;
+    for (int n = 0; n < i+1; n++)
+        print_col(&Cdataframe[n]);
+    printf("Jusqu'a quelle ligne voulez vous affichez les nombres ?\n");
+    scanf("%d",&o);
+    for (int n = 0; n < i; n++)
+        print_liml(&Cdataframe[n],o);
+    printf("Jusqu'a quelle colonne voulez vous affichez les nombres ?\n");
+    scanf("%d",&o);
+    for (int n = 0; n < o; n++)
+        print_col(&Cdataframe[n]);
+    for (int n = 0; n < i ; n++){
+        printf("Quel nombre vous voulez vous ajoutez a la colonne %d\n",n);
+        scanf("%d",&o);
+        add_line(&Cdataframe[n],o);
+    }
+    for (int n = 0; n < i; n++)
+        print_col(&Cdataframe[n]);
+    delete_column(&Cdataframe);
     return 0;
+}
