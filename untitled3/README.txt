@@ -6,12 +6,12 @@ Le projet CDataframe a pour mission de créer un CDataframe (librairie) capable 
 
 L'utilisateur pourra nottement :
 
-1 - Agir sur l'alilention
+1 - Agir sur l'alimentation
       -créer un dataframe vide 
       -le remplir en dur ou par saisie utilisateur
 
 2 - Afficher le dataframe
-      -dans son entièreté ou par groupe de colones ou de lignes
+      -dans son entièreté ou par groupe de colonnes ou de lignes
       -afficher le nom des colonnes
 
 3 - effectuer des opérations usuelles
