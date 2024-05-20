@@ -21,7 +21,7 @@ int insert_value(COLUMN *col, int value){
     }
     else {
         if (col->tp == col->tl) {
-            col->tableau = (int *) realloc(col->tableau, sizeof(int) * 256);
+            col->tableau = (int *)realloc(col->tableau, sizeof(int) * 256);
             col->tp += 256;
             if (col->tableau == NULL)
                 return 0;
@@ -88,17 +88,24 @@ int val_egal(COLUMN *col, int x){
     return egal;
 }
 
-void print_liml(COLUMN *col, int x){
-    for (int i = 0; i<x; i++){
-        printf("[%d] %d\n",i,col->tableau[i]);
-    }
+void print_liml(COLUMN *col,int x){
+    for (int i = 0; i < x; i++)
+        printf("[%d] %d",i,col->tableau[i]);
 }
 
 void add_line(COLUMN *col, int x){
     insert_value(col,x);
-    col->tp += 1;
+    col->tl += 1;
 }
 
-void add_col(COLUMN *col,char *name){
+void delete_line(COLUMN *col){
+    col->tl--;
+}
 
+int verif_val(COLUMN *col, int x){
+    for (int i = 0; i < col->tl; i++){
+        if (col->tableau[i] == x)
+            return 1;
+    }
+    return 0;
 }
