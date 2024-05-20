@@ -117,5 +117,6 @@ int main() {
     scanf("%d",k);
     for (int n = 0; n < i; n++)
         print_liml(&Cdataframe[n],k);
+    delete_column(&Cdataframe);
     return 0;
 }
