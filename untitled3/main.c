@@ -1,9 +1,10 @@
 #include "column.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main() {
-    int i,o,k;
+    int i,o,k,verif = 0,pres,x;
     char name;
     COLUMN *Cdataframe = NULL;
     COLUMN *col = create_column("Colonne1");
@@ -35,25 +36,86 @@ int main() {
     }
     Cdataframe = (COLUMN *)realloc(Cdataframe,sizeof(COLUMN)*2);
     Cdataframe[i] = *col;
-    Cdataframe[i+1] = *col2;
+    i++;
+    Cdataframe[i] = *col2;
     i ++;
-    for (int n = 0; n < i+1; n++)
-        print_col(&Cdataframe[n]);
-    printf("Jusqu'a quelle ligne voulez vous affichez les nombres ?\n");
-    scanf("%d",&o);
     for (int n = 0; n < i; n++)
-        print_liml(&Cdataframe[n],o);
+        print_col(&Cdataframe[n]);
+
     printf("Jusqu'a quelle colonne voulez vous affichez les nombres ?\n");
-    scanf("%d",&o);
-    for (int n = 0; n < o; n++)
+    scanf("%d",&k);
+    for (int n = 0; n < k; n++)
         print_col(&Cdataframe[n]);
     for (int n = 0; n < i ; n++){
         printf("Quel nombre vous voulez vous ajoutez a la colonne %d\n",n);
-        scanf("%d",&o);
-        add_line(&Cdataframe[n],o);
+        scanf("%d",&k);
+        add_line(&Cdataframe[n],k);
+    }
+    for (int n = 0; n < i; n++) {
+        delete_line(&Cdataframe[n]);
+    }
+    // Création d'une colonne
+    printf("Quel est le nom de la nouvelle colonne ?\n");
+    scanf("%s",&name);
+    Cdataframe[i] = *create_column(&name);
+    i++;
+
+    printf("Quelle colonne voulez vous renommez ?\n");
+    scanf("%d",&k);
+    printf("Quel sera son nouveau nom ?\n");
+    scanf("%s",&name);
+    strcpy(Cdataframe[k].titre, &name);
+    printf("De quelle valeur souhaitez vous connaitre la presence ?\n");
+    scanf("%d",&o);
+    k = 0;
+    printf("Bjr");
+    while (verif != 1 || k < i){
+        verif = verif_val(&Cdataframe[k],o);
+        k++;
+    }
+    if (verif == 1)
+        printf("La valeur %d est presente dans le tableau.\n",o);
+    else
+        printf("La valeur %d n'est pas presente dans le tableau.\n",o);
+    printf("Quelle est la ligne et la colonne du chiffre dont vous voulez connaître la valeur ?\n");
+    scanf("%d %d",&o,&k);
+    printf("Il s'agit de %d.\nSouhaitez vous le modifiez ? Si oui tapez 1 sinon 0.\n",Cdataframe[o].tableau[k]);
+    scanf("%d",&pres);
+    if (pres) {
+        printf("Par quelle valeur souhaitez vous le modifiez ?\n");
+        scanf("%d",&x);
+        Cdataframe[o].tableau[k] = x;
     }
     for (int n = 0; n < i; n++)
-        print_col(&Cdataframe[n]);
-    delete_column(&Cdataframe);
+        printf("%s ",Cdataframe[n].titre);
+    k = 0;
+    while (&Cdataframe[k] != NULL){
+        k++;
+    }
+    o = 0;
+    printf("Il y a %d colonnes.\n",k);
+    for (int n = 0; n < i; n++){
+        o += Cdataframe[n].tl;
+    }
+    printf("Il y a %d lignes.\n",o);
+    x = 0;
+    for (int n = 0; n < i; n++){
+        x += nb_occurences(&Cdataframe[n],1);
+    }
+    printf("Il y a %d fois le nombre 1",x);
+    x = 0;
+    for (int n = 0; n < i; n++){
+        x += val_inf(&Cdataframe[n],20);
+    }
+    printf("Il y a %d valeur(s) inferieure a 20",x);
+    x = 0;
+    for (int n = 0; n < i; n++){
+        x += val_sup(&Cdataframe[n],20);
+    }
+    printf("Il y a %d valeur(s) superieure a 20",x);
+    printf("Jusqu'a quelle ligne voulez vous affichez les nombres ?\n");
+    scanf("%d",k);
+    for (int n = 0; n < i; n++)
+        print_liml(&Cdataframe[n],k);
     return 0;
 }
