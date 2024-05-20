@@ -1,19 +1,3 @@
-
-3 - effectuer des opérations usuelles
-      -ajouter/supprimer des valeures/colonnes
-      -renommer une colonne
-      -vérifier l’existence d’une valeur
-      -accéder/remplacer une valeur grace à ses coordonées dans le CDataframe
-
-4 - afficher les statistiques du CDataframe
-      -afficher le nombre de lignes / colonnes
-      -afficher le nombre de valeures suppérieures/inférieures/égales à une valeur saisie
-
-
-
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
 Le projet CDataframe a pour mission de créer un CDataframe (librairie) capable de faciliter la manipulation des données,
 c'est à dire un ensemnble de colonnes portant chacune un titre et permetant de stocker un nombre indéfini de données de
 même type.
@@ -35,3 +19,10 @@ lorsque le programme se lance, il est demandé dans l'ordre à l'utilisateur de 
 
 3 - effectuer des opération usuelles
 	-choisir une valeur à ajouter pour chaque colonne
+	-ajouter une nouvelle colonne
+	-renommer une colonne
+
+4 - afficher les statistiques du CDataframe
+	-vérifier la présence d'une valeur
+	-chercher la valeurs à une ligne et une colonne précise et le modifier ou non
+	-afficher le nom des colonnes
