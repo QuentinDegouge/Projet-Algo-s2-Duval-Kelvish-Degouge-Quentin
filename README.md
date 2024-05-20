@@ -5,7 +5,7 @@ Le projet CDataframe a pour mission de créer un CDataframe (librairie) capable 
 
 L'utilisateur pourra nottement :
 
-1 - Agir sur l'alilention
+1 - Agir sur l'alimentation
       -créer un dataframe vide 
       -le remplir en dur ou par saisie utilisateur
 
