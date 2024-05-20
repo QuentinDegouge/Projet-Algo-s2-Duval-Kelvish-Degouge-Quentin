@@ -41,4 +41,11 @@ void print_liml(COLUMN *, int x);
 
 void add_line(COLUMN *col, int x);
 
+
+void delete_line(COLUMN *col);
+
+
+int verif_val(COLUMN *col, int x);
+
+
 #endif //UNTITLED3_COLUMN_H
